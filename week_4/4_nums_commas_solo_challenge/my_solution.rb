@@ -16,6 +16,27 @@
 
 
 
+convert integer.to_s
+
+if integer.length<4
+    no comma
+if integer.length >= 4 and < 7
+    one comma three over from last character (string[-3]?)
+    string.split
+    array.join
+    
+if integer.length >=7 and < 9
+    two commas, three over from end (string[-3]? and six over from end(string[-6]?
+
+returns one comma when integer between 1000 and 999999
+
+return two commas when itneger between 1000000 and 999999999
+
+
+
+
+
+
 
 # 3. Refactored Solution
 
