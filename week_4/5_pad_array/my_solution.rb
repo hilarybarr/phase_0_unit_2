@@ -23,3 +23,5 @@
 
 
 # 4. Reflection 
+.clone
+http://alancohen.tumblr.com/post/31078056901/learning-to-code-the-hard-way-destructive-vs
