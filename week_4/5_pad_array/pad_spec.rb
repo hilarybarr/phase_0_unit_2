@@ -8,6 +8,7 @@ describe Array do
 
   let!(:all_arrays)   { [empty_array, array, long_array, random_array] }
 
+
   describe "#pad!" do
     it "operates destructively" do
       array.pad!(10).object_id.should eq(array.object_id)
