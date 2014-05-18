@@ -57,7 +57,7 @@ def median (array)
 	len % 2==0?  ((array[len/2-1]+ array[len/2]).to_f/2):  array[len/2]
 end
 
-# Version 2, with with half as a variable (I just put this here to show myself)
+# Version 2, with half as a variable (I just put this here to show myself)
 # that you can do this similarly to how we found the  median in JavaScript
 	len=array.length
 	array.sort!

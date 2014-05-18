@@ -65,13 +65,13 @@ def total (array)
 	array.each do |x| 
 		total+=x
 	end
-	return total
+    total
 end
 
 def sentence_maker (array) 
 	array[0].capitalize!
 	sentencearray=array.join(" ")
-	return sentencearray + "."
+    sentencearray + "."
 end
 
 

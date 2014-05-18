@@ -48,7 +48,7 @@ end
 =end
 
 # 3. Refactored Solution
-# I changed x to element to make what it represents more intuitive. I also deletd
+# I changed x to element to make what it represents more intuitive. I also deleted
 # the sort_by method since it wasn't necessary.
 
 def mode (array)
@@ -56,7 +56,7 @@ def mode (array)
 	array.each {|element| frequencies[element] +=1; }
 	max=frequencies.values.max
 	frequencies.keep_if {|element, frequency| frequency==max}
-	return frequencies.keys
+    frequencies.keys
 end
 
 

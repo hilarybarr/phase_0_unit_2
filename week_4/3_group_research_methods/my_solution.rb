@@ -68,35 +68,44 @@ p my_hash_modification_method(my_family_pets_ages, 2) == {"Evi" => 8, "Hoobie" =
 
 
 
-=begin
+
 # Person 3
+def my_array_sorting_method(source)
+  # Convert each element in the array to a string, for comparison/sorting purposes
+  for index in 0...source.length
+    source[index] = source[index].to_s
+  end
 
-def my_array_deletion_method(source, thing_to_delete)
-  #Your code here!
+  sorted_array = source.sort_by do |element|
+    element
+  end
+
+  return sorted_array
 end
 
-def my_hash_deletion_method(source, thing_to_delete)
-  #Your code here!
+def my_hash_sorting_method(source)
+  # Your code here!
+  sorted_hash = source.sort_by do |key, value|
+    value
+  end
+
+  return sorted_hash
 end
 
 # Identify and describe the ruby method you implemented. 
-# 
-#
-#
+# The Ruby sort_by method lets you sort within your object, whether it is an array or a hash.  
+# For an array, the syntax is quite basic:  
+#     sorted_array = array_to_sort.sort_by { |element| element }
+# And for the hash, just a tad more involved:
+#     sorted_hash = source.sort_by { |key, value| value }
 
 
 
 
 
-# Identify and describe the ruby method you implemented. 
-# array.uniq: removes duplicate elements
-# array.map: returns a new array with the results of running the block once for every element in enum. 
-#            (Similar to .each, except each returns original object)
-# .to_s: converts integers to strings
-# array.sort {|a,b| a<=>b}: sorts in alphabetical order
-# hash.sort_by {|a,b| b}: sorts by value in ascending order
 
-=end
+
+
 
 
 
@@ -172,7 +181,7 @@ my_family_pets_ages={"Evi" => 8, "Hoobie" => 5, "George" => 14, "Bogart" => 6, "
 # words. Each element will only appear once and each element will be in string form in alphabetized array.
 def my_array_sorting_method(source)
   # Removes duplicates and converts every integer to a string.
-  # Create new array  as opposed to use source! because don't want to modify existing data structure
+  # Create new array as opposed to use source! because don't want to modify existing data structure
   source_2=source.uniq.map!{|x| x.to_s}
   # Sorts array in alphabetical order 
   source_2.sort{|a,b| a <=> b}
