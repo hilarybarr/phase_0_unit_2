@@ -3,25 +3,18 @@
 
 
 
-=begin
-# Person 1's solution
+# Person 1's solution - Rootul
+
 def my_array_finding_method(source, thing_to_find)
-  # Your code here!
+    return source.select {|v| v =~ /#{thing_to_find}/}
 end
 
 def my_hash_finding_method(source, thing_to_find)
-  # Your code here!
+    new_hash = source.select {|k,v| v == thing_to_find}  
+    new_array = new_hash.to_a.flatten
+    new_array.delete(thing_to_find)
+    return new_array
 end
-
-# Identify and describe the ruby method you implemented. 
-# 
-#
-#
-
-
-
-=end
-
 
 
 
@@ -65,11 +58,8 @@ p my_hash_modification_method(my_family_pets_ages, 2) == {"Evi" => 8, "Hoobie" =
 
 
 
+# Person 3 - Alan
 
-
-
-
-# Person 3
 def my_array_sorting_method(source)
   # Convert each element in the array to a string, for comparison/sorting purposes
   for index in 0...source.length
@@ -92,13 +82,30 @@ def my_hash_sorting_method(source)
   return sorted_hash
 end
 
-# Identify and describe the ruby method you implemented. 
-# The Ruby sort_by method lets you sort within your object, whether it is an array or a hash.  
-# For an array, the syntax is quite basic:  
-#     sorted_array = array_to_sort.sort_by { |element| element }
-# And for the hash, just a tad more involved:
-#     sorted_hash = source.sort_by { |key, value| value }
 
+
+
+# Person 4 - Cassie (myself)
+
+def my_array_deletion_method(source, thing_to_delete)
+
+  source.delete_if {|i| i.to_s.include?(thing_to_delete)}
+  return source
+
+end
+
+def my_hash_deletion_method(source, thing_to_delete)
+  
+  source.delete_if {|k, v| v.to_s.include?(thing_to_delete)}
+  return source
+
+end
+
+
+# I used the method delete_if, which seemed like the most 
+# appropriate method for the task. delete_if deletes every
+# element for the array or hash if the block evaluates to
+# true, and changing the array or hash to reflect the deletion.  
 
 
 
