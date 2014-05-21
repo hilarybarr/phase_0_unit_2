@@ -2,7 +2,7 @@
 
 # Your Names
 # 1) Matthew Darin 
-# 2) Hillary Barr 
+# 2) Hilary Barr 
 
  # This is the file you should end up editing. 
 =begin
@@ -49,20 +49,26 @@ def bakery_num(num_of_people, fav_food) #defining a method bakery_number.  Takes
 
 _______________________________________________________________________________________________________________
 
-# Refactored Code Version 1: With While Loop
-# Note all tests are passing but the last
-def bakery_num(num_of_people, fav_food) 
-  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} 
-  pie_qty = 0 
-  cake_qty = 0 
-  cookie_qty = 0 
+# Refactored Code   v 1 with while loop and case block
 
-    if my_list.has_key?(fav_food) 
+if my_list.has_key?(fav_food) 
         fav_food_qty = my_list.values_at(fav_food)[0] 
         if num_of_people % fav_food_qty == 0 
             num_of_food = num_of_people / fav_food_qty 
             return "You need to make #{num_of_food} #{fav_food}(s)." 
-        else 
+        else
+            
+            case fav_food
+            when "pie"
+                pie_qty = num_of_people / my_list[fav_food]
+            when "cake"
+                cake_qty = num_of_people / my_list[fav_food]
+            when "cookie"
+                cookie_qty = num_of_people / my_list[fav_food]
+            end
+            
+            num_of_people = num_of_people % my_list[fav_food]
+            
             while num_of_people > 0 
                 if num_of_people / my_list["pie"] > 0 
                     pie_qty = num_of_people / my_list["pie"] 
@@ -72,74 +78,56 @@ def bakery_num(num_of_people, fav_food)
                     cake_qty = num_of_people / my_list["cake"] 
                     num_of_people = num_of_people % my_list["cake"]
                 end
-                if
+                if num_of_people / my_list["cookie"] > 0 
                     cookie_qty = num_of_people
                     num_of_people = 0
                 end
-              end
-                return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
-            end  
+            end
+            return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
+        end  
 
     else 
         raise ArgumentError.new("You can't make that food") # raise argument using a string 
        end
     end
-=end
+=end 
+     
 
+# Refactored v. 2
+# Note: the code will not pass unless we remove "and" from the test code 
 
-
- # Refactored Version 2, With A Case Block (all tests are passing) 
-
-  def bakery_num(num_of_people, fav_food) 
+def bakery_num(num_of_people, fav_food) 
   my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} 
-  pie_qty = 0 
-  cake_qty = 0 
-  cookie_qty = 0 
  
  
     if my_list.has_key?(fav_food) 
-        fav_food_qty = my_list.values_at(fav_food)[0] 
+          fav_food_qty = my_list[fav_food]
         if num_of_people % fav_food_qty == 0 
             num_of_food = num_of_people / fav_food_qty 
             return "You need to make #{num_of_food} #{fav_food}(s)." 
         else 
-            case fav_food
-                when "pie"
-                     if num_of_people / my_list["pie"] > 0 
-                         pie_qty = num_of_people / my_list["pie"] 
-                         num_of_people = num_of_people % my_list["pie"] 
-                       end
-                    if num_of_people / my_list["cake"] > 0   
-                         cake_qty = num_of_people / my_list["cake"] 
-                         num_of_people = num_of_people % my_list["cake"]
-                       end
-                    if
-                        cookie_qty = num_of_people
-                        num_of_people = 0
-                      end
-                when "cake"
-                     if num_of_people / my_list["cake"] > 0   
-                         cake_qty = num_of_people / my_list["cake"] 
-                         num_of_people = num_of_people % my_list["cake"]
-                       end
-                    if
-                        cookie_qty = num_of_people
-                        num_of_people = 0
-                    end
-                when "cookie"
-                        cookie_qty = num_of_people
-                        num_of_people = 0
-                else
-                    "You need to pick pie, cake, or cookie"
-                end      
-             return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
-            end  
-      
-        else 
+            updated_list = {} # rename this to something more sensible
+            updated_list[fav_food] = num_of_people / my_list[fav_food]
+            num_of_people = num_of_people % my_list[fav_food]
+            
+          
+           my_list.each_key do |food|
+            updated_list[food] = num_of_people / my_list[food] unless updated_list[food] 
+            num_of_people = num_of_people % my_list[food]
+           end
+
+           #return "You need to make #{updated_list["pie"]} pie(s), #{updated_list["cake"]} cake(s), and #{updated_list["cookie"]} cookie(s)."
+            str = "You need to make "
+            updated_list.each do |k,v|
+                str += "#{k} #{v}(s), "
+            end
+            return str
+          end 
+
+     else 
             raise ArgumentError.new("You can't make that food") # raise argument using a string 
         end
     end   
-     
 
 
 
@@ -155,9 +143,8 @@ p bakery_num(41, "pie") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s
 p bakery_num(24, "cookie") == "You need to make 24 cookie(s)."
 p bakery_num(4, "pie") == "You need to make 0 pie(s), 0 cake(s), and 4 cookie(s)."
 p bakery_num(130, "pie") == "You need to make 16 pie(s), 0 cake(s), and 2 cookie(s)."
-# p bakery_num(3, "apples") # this will raise an ArgumentError
 p bakery_num(41, "cake") == "You need to make 0 pie(s), 6 cake(s), and 5 cookie(s)." # WHAAAAAT? I thought I said I wanted cake!
-
+p bakery_num(3, "apples") # this will raise an ArgumentError
 
 
 =begin
@@ -177,9 +164,10 @@ I feel like I have a long way to go with learning how to refactor. The more meth
 I also am not sure if this is the DRYest we can make the code, but getting it to work is a good first step.
 
 Which parts of the challenge did you enjoy?
-I enjoyed going through the legacy code line by line and seeing the whole picture come together.
+I enjoyed going through the legacy code line by line and seeing our understanding of the whole picture come together.
 
 Which parts of the challenge did you find tedious?
-I didn't find it tedious per se, but there was a lot of repetition in the code which I am not sure how to improve.
+I didn't find it tedious per se, but there was a lot of repetition in the code which I wasn't sure how to improve
+until Mo taught me how to fix the control flow and incorporate an each iterator.
 
 =end

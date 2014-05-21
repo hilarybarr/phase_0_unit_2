@@ -80,8 +80,8 @@ empty=Die.new([]) # Should get argument error
 =begin
 # 5. Reflection 
 What parts of your strategy worked? What problems did you face? What questions did you have while coding? What resources did you find to help you answer them?
-I felt like I understood how to do this challenge as soon as I opened it after having gone through Challenge 1. It required essentially the same
-way of thinking.
+I felt like I understood how to do this challenge as soon as I opened it after having gone through Challenge 1. 
+It required essentially the same way of thinking.
 
 What concepts are you having trouble with, or did you just figure something out? If so, what?
 I am still not 100% clear on how to write driver test code, so I will discuss this during office hours.

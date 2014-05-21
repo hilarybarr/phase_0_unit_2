@@ -82,7 +82,8 @@ Our for loop wasn't returning col_array until we explicitly returned col_array, 
 needed there. We also weren't sure about the difference in when to use self versus the instance variable name when writing methods
 within a class. We did some research on Stack Overflow and it appears that you use self when you haven't initialized
 an object. So for example, the class defining Integer would include self if you could write 5=Integer.new(). But you would use
-@integer when writing the Integer class if you were able to write my_integer=Integer.new(5).
+@integer when writing the Integer class if you were able to write my_integer=Integer.new(5). Also, in short, self refers to the entire
+instantiated object while instance variables refer to features of it.
 
 Did you learn any new skills or tricks?
 Alan taught me how to use a for loop to determine which letters should be returned in our get_col method.

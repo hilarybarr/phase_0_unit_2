@@ -57,8 +57,7 @@ die1= Die.new(1)
 die2= Die.new(2)
 die3= Die.new(3)
 
-#Tests to make sure sides greater than or equal to 1
-# Die.new(0) # raises argument error
+
 
 #Tests sides
 p die1.sides==1
@@ -71,7 +70,8 @@ p die2.roll==1+rand(2)
 p die3.roll==1+rand(3)
 
 
-
+#Tests to make sure sides greater than or equal to 1
+Die.new(0) # raises argument error
 
 
 
@@ -89,8 +89,8 @@ What concepts are you having trouble with, or did you just figure something out?
 I was having trouble writing driver code and didn't understand why my tests were failing. After browsing through a later challenge, I saw an example
 that made everything click in my head. The missing link in my understanding was that I thought all driver test code that we create in a .rb document
 needs to be set == to something. For example, p die3.roll==1+rand(3). So I thought that if you wanted to show that something would raise an argument
-error, you had to set the method equal to the argument error itself. Instead, I learned that you keep the argument error test in comments
-and don't set it equal to anything, such that if you remove the comment the error would be raised, as in line 61.
+error, you had to set the method equal to the argument error itself. Instead, I learned that don't set the argument error test equal to anything, you 
+just print an example of what would raise an error at the bottom of your code so it doesn't interfere with the rest of the tests.
 
 Did you learn any new skills or tricks?
 I learned how to create a class, define methods within a class, and create instance methods. I also learned how to indicate
