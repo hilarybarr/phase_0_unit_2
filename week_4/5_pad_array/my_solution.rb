@@ -45,8 +45,10 @@ class Array
 
 		return self if minimumsize <= self.length
 
+		i=0
 		while minimumsize > self.length 
 			self << padvalue
+			i+=1
 		end
 
 		self 
