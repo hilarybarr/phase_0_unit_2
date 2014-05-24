@@ -41,13 +41,13 @@ class Boggle_Board
 
   # Part 3: Now write a method that takes a column number and returns all the elements in the column.
   def get_col(col)
-    col_array=[]
-    for i in 0...@board.length do
-        col_array << @board[i][col-1]
+    col_array = []
+    num_cols = @board.length #      #cols equals #row_arrays in the board array
+    num_cols.times do |looping_row| 
+      col_array << @board[looping_row][col-1]
     end
-    col_array
+    return col_array
   end
-end
   
 
 boggle_board2 = Boggle_Board.new(  [["b", "r", "a", "e"],

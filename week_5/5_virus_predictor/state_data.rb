@@ -2,7 +2,7 @@
 #this data is updated every year with estimates from a 10 year census 
 
 
-STATE_DATA = {  "Alabama" => {population_density: 94.65, population: 4822023, region: 5, regional_spread: 3},
+STATE_DATA_ORIGINAL = {  "Alabama" => {population_density: 94.65, population: 4822023, region: 5, regional_spread: 3},
                 "Alaska" => {population_density: 1.1111, population: 731449, region: 10, regional_spread: 9},
                 "Arizona" => {population_density: 57.05, population: 6553255, region: 8, regional_spread: 8},
                 "Arkansas" => {population_density: 56.43, population: 2949131, region: 7, regional_spread: 5},
@@ -54,10 +54,15 @@ STATE_DATA = {  "Alabama" => {population_density: 94.65, population: 4822023, re
                 "Wisconsin" => {population_density: 105.2, population: 5726398, region: 4, regional_spread: 6},
                 "Wyoming" => {population_density: 5.851, population: 576412, region: 8, regional_spread: 6}
               }
-              
-              
-              
-              
+
+# We haven't figured out how to delete the unnecessary keys yet            
+STATE_DATA=STATE_DATA_ORIGINAL.clone
+STATE_DATA.each do |state, state_hash|
+    state_hash.delete(:region)
+    state_hash.delete(:regional_spread) 
+end 
+
+
               
               
 

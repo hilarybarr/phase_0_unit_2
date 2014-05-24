@@ -69,14 +69,14 @@ class GuessingGame
     raise ArgumentError.new("Error: you must enter an integer") unless @answer.is_a? Integer
   end
   
-  def guess(guess)
-  	@guess=guess
+  def guess(theguess)
+  	@theguess=theguess
   	@solved=false
-  	if guess > @answer
+  	if @theguess > @answer
   		:high
-  	elsif guess < @answer
+  	elsif @theguess < @answer
   		:low
-  	elsif guess == @answer
+  	elsif @theguess == @answer
   		@solved=true
   		:correct
     end
@@ -89,6 +89,8 @@ class GuessingGame
 end 
 
 
+
+while true
 game = GuessingGame.new(rand(100))
 last_guess  = nil
 last_result = nil
@@ -105,8 +107,14 @@ until game.solved?
 end
 
  puts "#{last_guess} was correct!"
-
-
+ puts "Play again?"
+ playagain=gets.chomp
+ if playagain.downcase=="yes"
+    game=GuessingGame.new(rand(100))
+  else
+    break
+end
+end 
 
 
 
