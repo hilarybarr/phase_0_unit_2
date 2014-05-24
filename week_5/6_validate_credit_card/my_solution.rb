@@ -124,25 +124,34 @@ p card2.check_card
 =begin
 # 5. Reflection 
 
-What parts of your strategy worked? What problems did you face?
-
-
-What questions did you have while coding? What resources did you find to help you answer them?
-
-
-What concepts are you having trouble with, or did you just figure something out? If so, what?
+What parts of your strategy worked? What problems did you face? What questions did you have while coding? What resources did you find to help you answer them? What concepts are you having trouble with, or did you just figure something out? If so, what?
+This was a difficult challenge with many steps, and breaking the challenge down step by step helped.
+We weren't sure what our method names should be at first, so we figured this out through
+trial and error. We also were initially confused about how to get our methods to talk to one another
+and ended up figuring this out, as displayed on line 98. We also knew what we wanted our code to
+do (i.e. only iterate over even or odd-indexed elements) but weren't sure what methods would 
+make this possible and ended up finding answers by consulting Ruby Doc and Stack Overflow. 
 
 
 Did you learn any new skills or tricks?
+I learned a simpler way to write the .inject method (with a :+). We knew we wanted to act upon only
+even-index and then odd-index items in the array, and ended up discovering the each_with_index.
+We also wanted to condense the nested even arrays into one array and learned about .flatten.
+I also realized during this challenge that I need to test my code in IRB more since testing 
+step-by-step helped us. 
 
 
 How confident are you with each of the Learning Competencies?
-
+I feel pretty comfortable with iterating through data strucutres, manipulating data within
+data structures, and decomposing a problem into smaller, easier to solve components. Learning
+how to read Ruby Doc has helped immensely with this.
 
 Which parts of the challenge did you enjoy?
-
+I felt that this was possibly the most difficult challenge we've had so far, and I enjoyed how good
+it felt to complete it successfully. 
 
 Which parts of the challenge did you find tedious?
+I didn't find any parts of the challenge tedious.
 
 =end
 
