@@ -18,6 +18,7 @@ Create class Boggle_Board.
 =end
 
 
+<<<<<<< HEAD
 
 # I worked on this challenge [by myself, with: ].
 class Boggle_Board
@@ -103,3 +104,15 @@ code spoke for themsleves.
 
 =end
 
+=======
+# Refactored Solution
+
+
+# DRIVER TESTS GO BELOW THIS LINE
+
+
+# Reflection 
+
+
+
+>>>>>>> upstream/master
