@@ -5,7 +5,7 @@
 
 # 2. Pseudocode
 =begin
-# Input: Sides
+# Input: Number of sides on a die
 # Output: self.sides= number of sides; self.roll=1+rand(# of sides)
 # Steps:
 

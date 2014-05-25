@@ -31,7 +31,7 @@ Initialize an object of the Die class that takes an array as its argument and te
 
 
 
-
+=begin
 class Die
 
   def initialize(labels)
@@ -51,7 +51,7 @@ class Die
   end
 
 end
-
+=end
 
 
 
@@ -59,9 +59,24 @@ end
 
 
 # 4. Refactored Solution
+#I took out my if-else statement.
 
-# I couldn't think of any changes to make since the code was succinct and all the tests passed.
+class Die
 
+  def initialize(labels)
+      raise ArgumentError.new("The array is empty.") if labels.empty?
+      @labels=labels
+  end
+
+  def sides
+    @labels.length
+  end
+
+  def roll
+    @labels.sample
+  end
+
+end
 
 
 
