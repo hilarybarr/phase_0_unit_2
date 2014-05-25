@@ -61,6 +61,7 @@ end
 # Everything is the same as above, except I added an interactive component where the user selects
 # the guess. I am not sure how to add the interactive component to the class.
 
+
 class GuessingGame
 
   def initialize(answer)
@@ -110,7 +111,7 @@ end
  puts "Play again?"
  playagain=gets.chomp
  if playagain.downcase=="yes"
-    game=GuessingGame.new(rand(100))
+    game=GuessingGame.new(rand(26))
   else
     break
 end

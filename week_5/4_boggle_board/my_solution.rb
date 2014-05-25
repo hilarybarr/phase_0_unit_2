@@ -22,11 +22,8 @@ Create class Boggle_Board.
 
 class Boggle_Board
     def initialize(board)    
-        if board.empty?     
-            raise ArgumentError.new("Board cannot be empty")
-        else
+            raise ArgumentError.new("Board cannot be empty") if board.empty?
             @board = board
-        end
     end
 
   # Part 1: Access multiple elements of a nested array
@@ -50,14 +47,16 @@ class Boggle_Board
   end
   
 
+
+
+
+#Driver Test Code
+
 boggle_board2 = Boggle_Board.new(  [["b", "r", "a", "e"],
                                     ["i", "o", "d", "t"],
                                     ["e", "c", "l", "r"],
                                     ["t", "a", "k", "e"]] )
 
-
-
-#Driver Test Code
   p boggle_board2.create_word([2,1],[1,1],[1,2],[0,3]) == "code"  #=> returns "code"  
   p boggle_board2.create_word([0,1],[0,2],[1,2]) == "rad"  #=> creates what california slang word?
   p boggle_board2.get_row(3) ==  ["e", "c", "l", "r"]
@@ -102,16 +101,3 @@ Writing the pseudocode after the fact was a bit tedious since we felt that the c
 code spoke for themsleves.
 
 =end
-
-=======
-# Refactored Solution
-
-
-# DRIVER TESTS GO BELOW THIS LINE
-
-
-# Reflection 
-
-
-
->>>>>>> upstream/master
