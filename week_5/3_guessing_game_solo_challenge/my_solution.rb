@@ -91,7 +91,7 @@ end
 
 
 while true
-game = GuessingGame.new(rand(100))
+game = GuessingGame.new(rand(26))
 last_guess  = nil
 last_result = nil
 
@@ -101,7 +101,7 @@ until game.solved?
     puts ""
   end
 
-  print "Enter your guess: "
+  print "Guess a number from 1 to 25: "
   last_guess  = gets.chomp.to_i
   last_result = game.guess(last_guess)
 end

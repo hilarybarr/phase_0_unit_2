@@ -1,4 +1,4 @@
-# U2.W5: A Nested Array to Model a Boggle Board
+ # U2.W5: A Nested Array to Model a Boggle Board
 
 # I worked on this challenge [with: Alan Florendo].
 
@@ -18,9 +18,8 @@ Create class Boggle_Board.
 =end
 
 
-<<<<<<< HEAD
 
-# I worked on this challenge [by myself, with: ].
+
 class Boggle_Board
     def initialize(board)    
         if board.empty?     
