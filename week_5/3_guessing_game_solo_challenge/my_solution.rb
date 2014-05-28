@@ -56,8 +56,8 @@ end
 =end
 
 
-
-# 4. Refactored Solution
+=begin
+# 4. Refactored Solution v.1 with loop outside class
 # Everything is the same as above, except I added an interactive component where the user selects
 # the guess. I am not sure how to add the interactive component to the class.
 
@@ -117,13 +117,9 @@ end
 end
 end 
 
+#
 
-
-
-
-
-# 1. DRIVER TESTS GO BELOW THIS LINE
-
+DRIVER TESTS GO BELOW THIS LINE
 game = GuessingGame.new(10)
 
 p game.solved?  # Should return false
@@ -136,6 +132,84 @@ p game.guess(10)==:correct
 p game.solved? #Should return true
 
 
+=end
+
+
+
+# Refactored v. 2 with while loop inside class
+
+
+class GuessingGame
+
+  def initialize
+    @answer=rand(26)
+    @solved=false
+  end
+  
+  def guess(theguess)
+    @theguess=theguess
+    @solved=false
+    if @theguess > @answer
+      :high
+    elsif @theguess < @answer
+      :low
+    elsif @theguess == @answer
+      @solved=true
+      :correct
+    end
+  end 
+
+  def solved?
+    @solved
+  end 
+
+  def play_game
+    while true
+    last_guess  = nil
+    last_result = nil
+
+    until self.solved?
+      unless last_guess.nil?
+        puts "Oops!  Your last guess (#{last_guess}) was #{last_result}."
+        puts ""
+      end
+
+      print "Guess a number from 1 to 25: "
+      last_guess  = gets.chomp.to_i
+      last_result = self.guess(last_guess)
+    end
+
+     puts "#{last_guess} was correct!"
+     puts "Play again?"
+     playagain=gets.chomp
+     if playagain.downcase=="yes"
+        game=GuessingGame.new
+        game.play_game
+      else
+        break
+      end
+    end 
+
+  end 
+end
+
+
+game=GuessingGame.new
+game.play_game
+
+
+
+
+
+
+# 1. DRIVER TESTS GO BELOW THIS LINE
+
+game= GuessingGame.new
+
+
+p game.solved?  # Should return false
+
+p game.guess(27)==:high
 
 
 
