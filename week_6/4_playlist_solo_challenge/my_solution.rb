@@ -19,14 +19,14 @@
 # Define play_all method.
 
 
-# Initial Solution
+# Initial Solution/Refactored Solution: 
 
 
 
 
 class Song 
 
-	attr_accessor :title, :artist
+	attr_reader :title, :artist
 
 	def initialize(title, artist)
 		@title=title
@@ -43,7 +43,7 @@ end
 
 class Playlist 
 
-	attr_accessor :songs
+	attr_reader: songlist
 
 	def initialize(*songs)
 		@songlist=[]
@@ -58,13 +58,11 @@ class Playlist
 
 	def remove(*songs)
 		songs.each {|song| @songlist.delete(song)}
-
 	end
 
 	def num_of_tracks
 		@songlist.length
 	end
-
 
 	def includes?(song)
 		if @songlist.include?(song)
@@ -72,23 +70,23 @@ class Playlist
 		else
 			false
 		end
-	
 	end
 
 	def play_all
 		playlist=@songlist.shuffle
+		puts ""
 		playlist.each {|song| puts "Now playing " + song.title + " by " +  song.artist + ". "}
 	end
 	
 	 def display
-		puts "This playlist includes:"
+		puts ""
+		print "This playlist includes:"
 		@songlist.each {|song|  print song.title + " by " +  song.artist+ "/"}
 	end
 
-
 end
 
-# Refactored Solution
+
 
 
 # DRIVER TESTS GO BELOW THIS LINE
@@ -97,37 +95,27 @@ one_by_one.play
 
 world_so_cold = Song.new("World So Cold", "Three Days Grace") 
 going_under = Song.new("Going Under", "Evanescence")
- 
+
 my_playlist = Playlist.new(one_by_one, world_so_cold, going_under)
-
 p my_playlist.includes?(one_by_one)==true
-
 my_playlist.display
-
 my_playlist.play_all
-
 p my_playlist.num_of_tracks==3
-
 
 
 lying_from_you = Song.new("Lying From You", "Linkin Park")
 angels = Song.new("Angels", "Within Temptation")
 my_playlist.add(lying_from_you, angels)
-
 p my_playlist.includes?(angels)== true
 p my_playlist.num_of_tracks == 5
 
 my_playlist.remove(angels)
-
 p my_playlist.num_of_tracks == 4
-
 my_playlist.display
-
 my_playlist.play_all
 
-
- 
-### Why is this not working??? p my_playlist.includes?(nosong)==false 
+p my_playlist.includes?("nosong")==false    # Note: I could test a string here but not an object that wasn't set. So if I removed the quotation marks
+                                            # from nosong, I'd get an argument error.
 
 
 
@@ -145,9 +133,8 @@ you can call the methods of the other class. So I was able to call song.title an
 Playlist class. 
 
 When I tried to write a method for .includes?(song) that would equal false, i.e. p my_playlist.includes?(nosong)==false, I got an error message:
-undefined local variable or method `nosong' for main:Object (NameError). I will ask about this during office hours.
-
-
+undefined local variable or method `nosong' for main:Object (NameError). I realized that I could test a string here but not an object that wasn't 
+set. So if I removed the quotation marks from nosong, I'd get an argument error.
 
 
 Did you learn any new skills or tricks?

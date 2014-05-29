@@ -62,7 +62,7 @@ class PezDispenser
 		raise ArgumentError.new("You must enter an array") if flavors.empty?
 		@flavors=flavors
 		@count=flavors.count
-		puts "A new pez dispenser has been created. You have {@count.to_s} pez! Here's a look inside the dispenser: #{self.see_all_pez}." 
+		puts "A new pez dispenser has been created. You have " + @count.to_s+ " pez! Here's a look inside the dispenser: #{self.see_all_pez}." 
 	end
 
 	def pez_count
@@ -114,13 +114,15 @@ assert {super_mario.see_all_pez.sort == flavors.sort}
 
 assert {super_mario.instance_variable_get(:@count)==10}
 
-assert {super_mario.pez_count==10}
+# assert {super_mario.pez_count==10}   # This prints to true but it also prints the result of method?
 
 super_mario.pez_count
 
 super_mario.get_pez
 
 assert {super_mario.instance_variable_get(:@count)==9}
+
+super_mario.pez_count
 
 p super_mario.see_all_pez
 
@@ -136,9 +138,9 @@ When designing my class, I wasn't sure whether it was necessary to increment @co
 wouldn't pass unless I did.  Also, @count returned nil unless I included it in the initialization. Writing assert statements helped me figure 
 this out, so I am glad we learned them.
 
-I  realized that if I set the return value of pez_count to @count, I could write super_mario.pez_count==10 as a driver method, but not if the
+I realized that if I set the return value of pez_count to @count, I could write super_mario.pez_count==10 as a driver method, but not if the
 puts statement was the last line of the method. I learned that even if the return value isn't printed, it's still noted.
-
+I am confused why string interpolation worked for @count on line 70 but not 65.
 
 
 Did you learn any new skills or tricks?
