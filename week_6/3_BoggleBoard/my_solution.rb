@@ -101,19 +101,18 @@ class Boggle_Board
      @board = board
   end
 
+  
+
 # Part 1: Access multiple elements of a nested array
   def create_word(*coords)
     coords.map { |coord| @board[coord.first][coord.last]}.join("")
   end
 
   # Part 2: Write a method that takes a row number and returns all the elements in the row.  
-  def get_letter(coord)
-    @board[coord.first][coord.last]
-  end
-
   def get_row(row)
     @board[row-1].join("")
   end
+
 
 
   # Part 3: Now write a method that takes a column number and returns all the elements in the column.
@@ -172,7 +171,7 @@ end
 
 # Driver test code for accessing individual coordinate
 # Driver test for get_letter method
-assert {boggle_board1.get_letter([3,2])=="k"}
+assert {boggle_board1.create_word([3,2])=="k"}
 
 # Driver code for create_word method
 assert {boggle_board1.create_word([2,1],[1,1],[1,2],[0,3]) == "code"} 
@@ -211,7 +210,7 @@ I like Object-Oriented design since it seems logical and structured.
 Writing the first three methods came easy to me after last week's challenge but I struggled with the get_diagonal method. I was having a hard time
 visualizing how it would work, so I wrote out all the possible coordinate combinations that would work with this method:
 
-Negative slope diagonals
+Some negative slope diagonals
 [0,0], [1,1]
 [0,0], [1,1], [2,2]
 [0,0], [1,1], [2,2], [3,3]
@@ -219,14 +218,19 @@ Negative slope diagonals
 [1,1], [2,2], [3,3]
 [2,2], [3,3]
 
+[0,1][1,2]....etc
 
-Positive slope diagonals
+
+Some positive slope diagonals
 [3,3], [2,2], [1,1], [0,0]
 [3,3], [2,2], [1,1]
 [3,3], [2,2]
 [2,2], [1,1], [0,0]
 [2,2], [1,1]
 [1,1], [0,0]
+
+[1,2][0, 1].....etc
+
 
 Seeing this written out made me realize that there is a relationship between the first element of each coordinate and the last element of each
 coordinate. Namely, the first element of one coordinate subtracted from the other should equal the second element of the coordiante subtracted
@@ -246,6 +250,9 @@ their mathematical properties. To use the Matrix class, you have to require Matr
 even though it has a .diagonal method, because it seems you can only use it with numbers. Another thing I learned about which wasn't really relevant
 to this lesson was  the .grep method. Let's say we wanted to see if the letter "a" was in our boggle board. We could write 
 boggle_board1.grep(/a/) and it would return any instances with the letter "a." I want to explore pattern matching and Regular Expressions more.
+Also, I learned about the fetch method, which I also didn't use here but could have used. Fetch returns the element at a specified position. 
+This is different from .index, which returns the index of what is specified.
+
 
 
 How confident are you with each of the Learning Competencies?
