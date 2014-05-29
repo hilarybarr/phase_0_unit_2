@@ -96,7 +96,7 @@ assert {boggle_board1.get_row(4) ==  ["t", "a", "k", "e"]}
 
 class Boggle_Board
 
-	require 'Matrix'
+	require 'matrix'
 
     def initialize(board)    
             raise ArgumentError.new("Board cannot be empty") if board.empty?
@@ -123,7 +123,7 @@ class Boggle_Board
 
   # Create a get_diagonal method
   def get_diagonal(*coords)
-  	puts (coords.first..coords.last).collect{|i|@board[i][i]}
+  	
 
   end
 end

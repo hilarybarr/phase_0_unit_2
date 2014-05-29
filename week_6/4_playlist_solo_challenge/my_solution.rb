@@ -22,6 +22,8 @@
 # Initial Solution
 
 
+
+
 class Song 
 
 	attr_accessor :title, :artist
@@ -39,7 +41,7 @@ end
 
 
 
-class Playlist < Song
+class Playlist 
 
 	attr_accessor :songs
 
@@ -124,8 +126,6 @@ my_playlist.display
 my_playlist.play_all
 
 
-
-
  
 ### Why is this not working??? p my_playlist.includes?(nosong)==false 
 
@@ -140,13 +140,13 @@ What parts of your strategy worked? What problems did you face? What questions d
 
 I got my code to work but couldn't figure out why all the components of the object were printing oddly (object looking like #String102020 
 @title="Title @name="name"). By looking at the code for Challenge 2, I realized that as long as you include an object defined in another class
-in a class (i.e. how the song objects are initialized as values for a new Playlist object), you can call the methods of that class. 
-So I was able to call song.title and song.artist inside the play_all and display methods of the Playlist class. 
+in a class (i.e. how the song objects are initialized as values for a new Playlist object), as well as use an attr_accessor method,
+you can call the methods of the other class. So I was able to call song.title and song.artist inside the play_all and display methods of the 
+Playlist class. 
 
 When I tried to write a method for .includes?(song) that would equal false, i.e. p my_playlist.includes?(nosong)==false, I got an error message:
 undefined local variable or method `nosong' for main:Object (NameError). I will ask about this during office hours.
 
-I am also still confused about when to write puts/p\print inside a method definiton, rather than printing the method call.
 
 
 
